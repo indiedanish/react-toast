@@ -50,7 +50,7 @@ const Notification = ({ type = "info", message, title, onClose, animation = "sli
         <span className="circle-icon">{icons[type]}</span>
         <div className="bubble-container">
           <span className="bubble-icon">
-            <BubblesIcon fill={colors[type]} />
+            <BubblesIcon type={type} />
           </span>
         </div>
       </div>

@@ -3,7 +3,7 @@ import useNotification from "./hooks/useNotification";
 
 // Define a simple component
 const App = () => {
-    const { NotificationComponent, triggerNotification } = useNotification("top-right");
+    const { NotificationComponent, triggerNotification } = useNotification("bottom-right");
 
 
     return (
@@ -11,9 +11,9 @@ const App = () => {
             {NotificationComponent}
             <button onClick={() => {
                 triggerNotification({
-                    title:"Succesd!",
-                    type: "error",
-                    message: "The fsjlwoings",
+                    title:"Welcome!",
+                    type: "question",
+                    message: "This is a success message!",
                     duration: 3000,
                 });
             }}>
