@@ -46,15 +46,18 @@ const Notification = ({ type = "info", message, title, onClose, animation = "sli
       ref={notificationRef}
 
     >
+
       <div class='icon-container'>
         <span class="circle-icon">{icons[type]}</span>
-        <span class="bubble-icon">
-          <BubblesIcon fill={colors[type]} />
-        </span>
+        <div class="bubble-container">
+          <span class="bubble-icon">
+            <BubblesIcon fill={colors[type]} />
+          </span>
+        </div>
 
 
       </div>
-      <div>
+      <div class="label-container">
 
         <h2>{title}</h2>
         <p>{message}</p>

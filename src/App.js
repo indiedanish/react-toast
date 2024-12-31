@@ -3,7 +3,7 @@ import useNotification from "./hooks/useNotification";
 
 // Define a simple component
 const App = () => {
-    const { NotificationComponent, triggerNotification } = useNotification("bottom-right");
+    const { NotificationComponent, triggerNotification } = useNotification("top-right");
 
 
     return (
