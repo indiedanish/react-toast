@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import {
-  AiOutlineClose,
-} from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
 import "./Notification.css";
 import SuccessIcon from './icons/SuccessIcon';
 import ErrorIcon from './icons/ErrorIcon';
@@ -14,7 +12,7 @@ const icons = {
   success: <SuccessIcon />,
   question: <QuestionIcon />,
   warning: <WarningIcon />,
-  error: <ErrorIcon />
+  error: <ErrorIcon />,
 };
 
 const animations = {
@@ -37,6 +35,9 @@ const Notification = ({ type = "info", message, title, onClose, animation = "sli
   const ariaLive = type === "error" || type === "warning" ? "assertive" : "polite";
   // A11y
 
+  // Return nothing if title or message is missing
+  if (!title || !message || !type) return null;
+
   return (
     <div
       className={`notification ${type} ${animations[animation]}`}
@@ -44,33 +45,23 @@ const Notification = ({ type = "info", message, title, onClose, animation = "sli
       aria-live={ariaLive}
       tabIndex={-1}
       ref={notificationRef}
-
     >
-
-      <div class='icon-container'>
-        <span class="circle-icon">{icons[type]}</span>
-        <div class="bubble-container">
-          <span class="bubble-icon">
+      <div className="icon-container">
+        <span className="circle-icon">{icons[type]}</span>
+        <div className="bubble-container">
+          <span className="bubble-icon">
             <BubblesIcon fill={colors[type]} />
           </span>
         </div>
-
-
       </div>
-      <div class="label-container">
-
+      <div className="label-container">
         <h2>{title}</h2>
-        <p>{message}</p>
-
-      </div>
-      <div>
-
-        <button className="closeBtn" onClick={() => onClose()}>
-          <AiOutlineClose color="white" />
-        </button>
-
+        <p>{message ?? "\u00A0"}</p>
       </div>
 
+      <button className="closeBtn" onClick={() => onClose()}>
+        <AiOutlineClose color="white" size={30} />
+      </button>
     </div>
   );
 };

@@ -3,11 +3,7 @@ import Notification from "../components/Notification";
 import { v4 as uuidv4 } from "uuid";
 
 const useNotification = (position) => {
-  const [notifications, setNotifications] = useState([
-    { id: 22, title: "Welcome", message: "This is a success message!", type: "success" },
-    { id: 232, title: "Welcome", message: "This is a success message!", type: "success" }
-  
-  ]);
+  const [notifications, setNotifications] = useState([]);
 
   const triggerNotification = useCallback(
     (notificationProps) => {

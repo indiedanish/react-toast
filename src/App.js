@@ -11,9 +11,9 @@ const App = () => {
             {NotificationComponent}
             <button onClick={() => {
                 triggerNotification({
-                    title:"Welcome!",
-                    type: "question",
-                    message: "This is a success message!",
+                    title:"Succesd!",
+                    type: "error",
+                    message: "The fsjlwoings",
                     duration: 3000,
                 });
             }}>
